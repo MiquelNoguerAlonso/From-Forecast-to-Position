@@ -1,0 +1,123 @@
+\begin{thebibliography}{18}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Audibert and Tsybakov(2007)]{AudibertTsybakov2007}
+Jean-Yves Audibert and Alexandre~B. Tsybakov.
+\newblock Fast learning rates for plug-in classifiers.
+\newblock \emph{The Annals of Statistics}, 35\penalty0 (2):\penalty0 608--633,
+  2007.
+\newblock \doi{10.1214/009053606000001217}.
+
+\bibitem[Bauschke et~al.(2010)Bauschke, Macklem, Sewell, and
+  Wang]{BauschkeEtAl2010}
+Heinz~H. Bauschke, Mason~S. Macklem, Jason~B. Sewell, and Xianfu Wang.
+\newblock Klee sets and {Chebyshev} centers for the right {Bregman} distance.
+\newblock \emph{Journal of Approximation Theory}, 162\penalty0 (6):\penalty0
+  1225--1244, 2010.
+\newblock \doi{10.1016/j.jat.2010.01.001}.
+
+\bibitem[Blackwell(1953)]{Blackwell1953}
+David Blackwell.
+\newblock Equivalent comparisons of experiments.
+\newblock \emph{The Annals of Mathematical Statistics}, 24\penalty0
+  (2):\penalty0 265--272, 1953.
+\newblock \doi{10.1214/aoms/1177729032}.
+
+\bibitem[Buchholz(1994)]{Buchholz1994}
+Peter Buchholz.
+\newblock Exact and ordinary lumpability in finite markov chains.
+\newblock \emph{Journal of Applied Probability}, 31\penalty0 (1):\penalty0
+  59--75, 1994.
+\newblock \doi{10.2307/3215235}.
+
+\bibitem[Cont et~al.(2010)Cont, Stoikov, and Talreja]{ContStoikovTalreja2010}
+Rama Cont, Sasha Stoikov, and Rishi Talreja.
+\newblock A stochastic model for order book dynamics.
+\newblock \emph{Operations Research}, 58\penalty0 (3):\penalty0 549--563, 2010.
+\newblock \doi{10.1287/opre.1090.0780}.
+
+\bibitem[Cont et~al.(2025)Cont, Micheli, and Neuman]{ContMicheliNeuman2025}
+Rama Cont, Alessandro Micheli, and Eyal Neuman.
+\newblock Fast and slow optimal trading with exogenous information.
+\newblock \emph{Finance and Stochastics}, 29:\penalty0 553--607, 2025.
+\newblock \doi{10.1007/s00780-025-00560-w}.
+
+\bibitem[Cover and Thomas(2006)]{CoverThomas2006}
+Thomas~M. Cover and Joy~A. Thomas.
+\newblock \emph{Elements of Information Theory}.
+\newblock Wiley, 2 edition, 2006.
+
+\bibitem[Elmachtoub and Grigas(2022)]{ElmachtoubGrigas2022}
+Adam~N. Elmachtoub and Paul Grigas.
+\newblock Smart predict, then optimize.
+\newblock \emph{Management Science}, 68\penalty0 (1):\penalty0 9--26, 2022.
+\newblock \doi{10.1287/mnsc.2020.3922}.
+
+\bibitem[G{\^a}rleanu and Pedersen(2013)]{GarleanuPedersen2013}
+Nicolae G{\^a}rleanu and Lasse~Heje Pedersen.
+\newblock Dynamic trading with predictable returns and transaction costs.
+\newblock \emph{Journal of Finance}, 68\penalty0 (6):\penalty0 2309--2340,
+  2013.
+\newblock \doi{10.1111/jofi.12080}.
+
+\bibitem[Grinold(1989)]{Grinold1989}
+Richard~C. Grinold.
+\newblock The fundamental law of active management.
+\newblock \emph{Journal of Portfolio Management}, 15\penalty0 (3):\penalty0
+  30--37, 1989.
+
+\bibitem[Grinold and Kahn(2000)]{GrinoldKahn2000}
+Richard~C. Grinold and Ronald~N. Kahn.
+\newblock \emph{Active Portfolio Management}.
+\newblock McGraw-Hill, 2 edition, 2000.
+
+\bibitem[Huang et~al.(2015)Huang, Lehalle, and
+  Rosenbaum]{HuangLehalleRosenbaum2015}
+Weibing Huang, Charles-Albert Lehalle, and Mathieu Rosenbaum.
+\newblock Simulating and analyzing order book data: The queue-reactive model.
+\newblock \emph{Journal of the American Statistical Association}, 110\penalty0
+  (509):\penalty0 107--122, 2015.
+\newblock \doi{10.1080/01621459.2014.982278}.
+
+\bibitem[Kelly(1956)]{Kelly1956}
+John~L. Kelly.
+\newblock A new interpretation of information rate.
+\newblock \emph{Bell System Technical Journal}, 35\penalty0 (4):\penalty0
+  917--926, 1956.
+
+\bibitem[Moallemi and Sa{\u g}lam(2013)]{MoallemiSaglam2013}
+Ciamac~C. Moallemi and Mehmet Sa{\u g}lam.
+\newblock {OR} forum---the cost of latency in high-frequency trading.
+\newblock \emph{Operations Research}, 61\penalty0 (5):\penalty0 1070--1086,
+  2013.
+\newblock \doi{10.1287/opre.2013.1165}.
+
+\bibitem[Neuman and Vo{\ss}(2022)]{NeumanVoss2022}
+Eyal Neuman and Moritz Vo{\ss}.
+\newblock Optimal signal-adaptive trading with temporary and transient price
+  impact.
+\newblock \emph{SIAM Journal on Financial Mathematics}, 13\penalty0
+  (2):\penalty0 551--575, 2022.
+
+\bibitem[Noguer~Alonso(2026)]{NoguerAlonso2026Execution}
+Miquel Noguer~Alonso.
+\newblock The mathematics of market impact and order execution.
+\newblock Zenodo, 2026.
+\newblock URL \url{https://doi.org/10.5281/zenodo.22736805}.
+
+\bibitem[Rockafellar(1970)]{Rockafellar1970}
+R.~Tyrrell Rockafellar.
+\newblock \emph{Convex Analysis}.
+\newblock Princeton University Press, 1970.
+
+\bibitem[Snyder(1972)]{Snyder1972}
+Donald~L. Snyder.
+\newblock Filtering and detection for doubly stochastic poisson processes.
+\newblock \emph{IEEE Transactions on Information Theory}, 18\penalty0
+  (1):\penalty0 91--102, 1972.
+
+\end{thebibliography}
