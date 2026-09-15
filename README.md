@@ -1,31 +1,29 @@
-# From Forecast to Position
+# Market Microstructure Trilogy — Paper III
 
-**Miquel Noguer Alonso**  
-Artificial Intelligence Finance Institute (AIFI)
+**From Forecast to Position**  
+DOI: <https://doi.org/10.5281/zenodo.22759534>  
+Fixed manuscript date: **15 September 2026**
 
-A theory of converting order-book forecasts into causal positions under transaction costs, market impact, constraints, latency, and partial observation.
+The main document is `p3_forecast.tex`. Compile it with pdfLaTeX and BibTeX;
+`latexmk -pdf p3_forecast.tex` performs the required passes. The bibliography,
+generated `.bbl`, five publication-resolution PNG figures, and every file
+needed to compile the deposited PDF are included.
 
-- DOI: [10.5281/zenodo.22759534](https://doi.org/10.5281/zenodo.22759534)
-- Overleaf: [editable project](https://www.overleaf.com/project/6aa88b2f836c121c0176c8c5)
-- Manuscript: [`paper.pdf`](paper.pdf)
-- LaTeX: [`paper.tex`](paper.tex)
+The figures are deterministic and use no market data. After installing the
+packages in `verification/requirements.txt`, they can be regenerated with:
 
-## Repository contents
+    python verification/generate_manuscript_figures.py --paper 3 --output figures
 
-This private repository is part 3 of the *Market Microstructure Trilogy*. It contains the reviewed manuscript, its LaTeX source, and the corresponding source and verification archive. The manuscript uses author-year citations and includes a table of contents.
+`Trilogy_Citations.bib` contains the definitive BibTeX records for all three
+papers. The trilogy uses a fixed star citation architecture: Paper III cites
+Paper I and does not cite Paper II.
 
-## Build
+## Repository downloads
 
-The manuscript was built with pdfLaTeX. For Papers II and III, run BibTeX between LaTeX passes.
+- [Final PDF](paper.pdf)
+- [Complete manuscript source](From_Forecast_to_Position_Source.zip)
+- [Editable Overleaf project](https://www.overleaf.com/project/6aa88b2f836c121c0176c8c5)
 
-```bash
-latexmk -pdf paper.tex
-```
-
-## Verification status
-
-The released PDF was reproduced from the included source on 15 September 2026. The Overleaf build completed with zero errors and zero warnings. Numerical and symbolic checks are contained in the accompanying verification archive.
-
-## Scope
-
-The guarantees in the paper are conditional on the declared models, information sets, and uncertainty bounds. Synthetic calculations verify the stated identities and certificates; they do not claim live-market profitability.
+The repository entry point `paper.tex` is identical to `p3_forecast.tex`.
+`trilogy-source-supplement.zip` is an alias of the current manuscript source archive.
+`verification-suite.zip` contains the current verification scripts and figure generator.
