@@ -1,4 +1,8 @@
 \documentclass[11pt]{article}
+% Keep release builds byte-stable by omitting volatile engine timestamps and IDs.
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=-1\fi
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -11,7 +15,8 @@
 \hypersetup{
 pdftitle={From Forecast to Position},
 pdfauthor={Miquel Noguer Alonso},
-pdfsubject={Order-book signals, market impact, and causal trading. DOI: 10.5281/zenodo.22759534}}
+pdfsubject={Order-book signals, market impact, and causal trading. DOI: 10.5281/zenodo.22759534},
+pdfkeywords={forecast evaluation, transaction costs, order-book prediction, market impact, causal trading}}
 \setlength{\emergencystretch}{3em}
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]

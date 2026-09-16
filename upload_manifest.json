@@ -1,0 +1,13 @@
+{
+  "paper": 3,
+  "repository": "From-Forecast-to-Position",
+  "private": true,
+  "main_source": "p3_forecast.tex",
+  "pages": 38,
+  "png_figures": 5,
+  "verification_groups": 41,
+  "pdf_sha256": "5c51e0417da29767cc98bcaef1f1197d8b04e76b8d9197a65cc2f885611b4eb9",
+  "source_archive_sha256": "0e06069c1c6c58ded3cf6a3a4eb1dc0bd5e69dc64adacd50c53be6a45952ffb3",
+  "full_source_tree_in_repository": true,
+  "doi": "10.5281/zenodo.22759534"
+}
