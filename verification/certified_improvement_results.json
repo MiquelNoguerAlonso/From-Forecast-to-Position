@@ -1,0 +1,61 @@
+{
+  "status": "all_passed",
+  "data": "Synthetic Gaussian returns; penalized objective, not cash P&L.",
+  "seed": 5259,
+  "scalar_optimizer_checks": 250,
+  "maximum_scalar_error": 6.938893903907228e-17,
+  "ellipsoid_optimizer_checks": 30,
+  "maximum_support_error": 2.220446049250313e-16,
+  "ellipsoid_solver_status_warnings_with_verified_objective": 1,
+  "mixture_integral_checks": 4,
+  "maximum_mixture_integral_error": 3.3306690738754696e-16,
+  "horizon": 800,
+  "paths": 1000,
+  "alpha": 0.05,
+  "mean_coverage_failure_probability": 0.0,
+  "noise_sigma": 0.2,
+  "mixture_v0": 0.1,
+  "observed_boundary_crossings": 1,
+  "boundary_crossing_fraction": 0.001,
+  "cumulative_guaranteed_conditional_gain": 1.505505577257078,
+  "example_realized_penalized_gain": 2.2933697885267925,
+  "example_time_uniform_lower_gain": 0.2827996039617693,
+  "rows": [
+    {
+      "mean_radius": 0.0,
+      "nominal_position": 0.1,
+      "robust_position": 0.09999999999999999,
+      "guaranteed_gain": 0.004999999999999999
+    },
+    {
+      "mean_radius": 0.02,
+      "nominal_position": 0.1,
+      "robust_position": 0.07999999999999999,
+      "guaranteed_gain": 0.003199999999999999
+    },
+    {
+      "mean_radius": 0.05,
+      "nominal_position": 0.1,
+      "robust_position": 0.04999999999999999,
+      "guaranteed_gain": 0.0012499999999999994
+    },
+    {
+      "mean_radius": 0.08,
+      "nominal_position": 0.1,
+      "robust_position": 0.01999999999999999,
+      "guaranteed_gain": 0.0002000000000000001
+    },
+    {
+      "mean_radius": 0.1,
+      "nominal_position": 0.1,
+      "robust_position": 0.0,
+      "guaranteed_gain": 0.0
+    },
+    {
+      "mean_radius": 0.15,
+      "nominal_position": 0.1,
+      "robust_position": 0.0,
+      "guaranteed_gain": 0.0
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "synthetic_only": true,
+  "scalar_joint_laws": 240,
+  "optimizer_comparisons": 480,
+  "vector_joint_laws": 40,
+  "max_scalar_identity_error": 8.881784197001252e-16,
+  "max_optimizer_position_error": 1.9840998177755864e-08,
+  "max_optimizer_value_error": 1.1102230246251565e-16,
+  "max_vector_identity_error": 5.773159728050814e-15,
+  "independent_optimal_attempt": 0.3,
+  "independent_gain": 0.00225,
+  "adverse_gain_of_original_attempt": -0.01275,
+  "adverse_optimal_buy_attempt": 0.0,
+  "stop_buying_theta": 0.3
+}
