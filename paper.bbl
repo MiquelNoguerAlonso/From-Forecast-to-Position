@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -26,6 +26,15 @@ David Blackwell.
 \newblock \emph{The Annals of Mathematical Statistics}, 24\penalty0
   (2):\penalty0 265--272, 1953.
 \newblock \doi{10.1214/aoms/1177729032}.
+
+\bibitem[Boyd et~al.(2017)Boyd, Busseti, Diamond, Kahn, Koh, Nystrup, and
+  Speth]{BoydEtAl2017}
+Stephen Boyd, Enzo Busseti, Steven Diamond, Ronald~N. Kahn, Kwangmoo Koh, Peter
+  Nystrup, and Jan Speth.
+\newblock Multi-period trading via convex optimization.
+\newblock \emph{Foundations and Trends in Optimization}, 3\penalty0
+  (1):\penalty0 1--76, 2017.
+\newblock URL \url{https://web.stanford.edu/~boyd/papers/cvx_portfolio.html}.
 
 \bibitem[Buchholz(1994)]{Buchholz1994}
 Peter Buchholz.
@@ -75,6 +84,20 @@ Richard~C. Grinold and Ronald~N. Kahn.
 \newblock \emph{Active Portfolio Management}.
 \newblock McGraw-Hill, 2 edition, 2000.
 
+\bibitem[Halmos(1982)]{Halmos1982}
+Paul~R. Halmos.
+\newblock \emph{A Hilbert Space Problem Book}.
+\newblock Springer, 2 edition, 1982.
+\newblock \doi{10.1007/978-1-4684-9330-6}.
+
+\bibitem[Howard et~al.(2021)Howard, Ramdas, McAuliffe, and
+  Sekhon]{HowardEtAl2021}
+Steven~R. Howard, Aaditya Ramdas, Jon McAuliffe, and Jasjeet Sekhon.
+\newblock Time-uniform, nonparametric, nonasymptotic confidence sequences.
+\newblock \emph{The Annals of Statistics}, 49\penalty0 (2):\penalty0
+  1055--1080, 2021.
+\newblock \doi{10.1214/20-AOS1991}.
+
 \bibitem[Huang et~al.(2015)Huang, Lehalle, and
   Rosenbaum]{HuangLehalleRosenbaum2015}
 Weibing Huang, Charles-Albert Lehalle, and Mathieu Rosenbaum.
@@ -107,12 +130,30 @@ Eyal Neuman and Moritz Vo{\ss}.
 Miquel Noguer~Alonso.
 \newblock The mathematics of market impact and order execution.
 \newblock Zenodo, 2026.
-\newblock URL \url{https://doi.org/10.5281/zenodo.22736805}.
+\newblock URL \url{https://doi.org/10.5281/zenodo.23027593}.
 
 \bibitem[Rockafellar(1970)]{Rockafellar1970}
 R.~Tyrrell Rockafellar.
 \newblock \emph{Convex Analysis}.
 \newblock Princeton University Press, 1970.
+
+\bibitem[Rodriguez~Dominguez(2026{\natexlab{a}})]{RodriguezDominguez2026Market}
+Alejandro Rodriguez~Dominguez.
+\newblock The market's conditioning representation: Equilibrium, crowding, and
+  convention multiplicity.
+\newblock \emph{arXiv preprint arXiv:2608.18299}, 2026{\natexlab{a}}.
+\newblock \doi{10.48550/arXiv.2608.18299}.
+\newblock URL \url{https://arxiv.org/abs/2608.18299}.
+\newblock Version 1, submitted 18 August 2026.
+
+\bibitem[Rodriguez~Dominguez(2026{\natexlab{b}})]{RodriguezDominguez2026Switching}
+Alejandro Rodriguez~Dominguez.
+\newblock Switching frictions, heterogeneous trading horizons, and long-memory
+  order flow.
+\newblock \emph{arXiv preprint arXiv:2609.02525}, 2026{\natexlab{b}}.
+\newblock \doi{10.48550/arXiv.2609.02525}.
+\newblock URL \url{https://arxiv.org/abs/2609.02525}.
+\newblock Version 1, submitted 2 September 2026.
 
 \bibitem[Snyder(1972)]{Snyder1972}
 Donald~L. Snyder.

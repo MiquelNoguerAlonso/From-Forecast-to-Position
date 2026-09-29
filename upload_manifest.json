@@ -1,13 +1,18 @@
 {
   "paper": 3,
   "repository": "From-Forecast-to-Position",
-  "private": true,
+  "private": false,
+  "manuscript_date": "2026-09-28",
   "main_source": "p3_forecast.tex",
-  "pages": 38,
-  "png_figures": 5,
-  "verification_groups": 41,
-  "pdf_sha256": "5c51e0417da29767cc98bcaef1f1197d8b04e76b8d9197a65cc2f885611b4eb9",
-  "source_archive_sha256": "0e06069c1c6c58ded3cf6a3a4eb1dc0bd5e69dc64adacd50c53be6a45952ffb3",
+  "pages": 50,
+  "png_figures": 7,
+  "pdf_sha256": "68d0e9c8610fb78cdd8d9e3ba028de21412c9845aa216b83f44c60c96b0f11e3",
+  "source_archive": "trilogy-source-supplement.zip",
+  "source_archive_sha256": "6fdc086c4c30b1a43788f878186c36428cf1d2f6d76e35b9a492d67c70928cc0",
+  "manifest_sha256": "9f8a5a70b2f0005201eb1228ff8f39ffb8e880de6fd48ce05114333d8194d2fb",
   "full_source_tree_in_repository": true,
-  "doi": "10.5281/zenodo.22759534"
+  "original_deposit_doi": "10.5281/zenodo.22759534",
+  "doi": "10.5281/zenodo.23027604",
+  "doi_deposit_updated": false,
+  "data": "Synthetic mathematical experiments; no market data."
 }

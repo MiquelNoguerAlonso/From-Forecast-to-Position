@@ -10,16 +10,18 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs,array,microtype}
 \usepackage{graphicx}
+\usepackage{placeins}
 \usepackage[round,authoryear]{natbib}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \hypersetup{
 pdftitle={From Forecast to Position},
 pdfauthor={Miquel Noguer Alonso},
-pdfsubject={Order-book signals, market impact, and causal trading. DOI: 10.5281/zenodo.22759534},
+pdfsubject={Order-book signals, market impact, and causal trading. DOI: 10.5281/zenodo.23027604},
 pdfkeywords={forecast evaluation, transaction costs, order-book prediction, market impact, causal trading}}
 \setlength{\emergencystretch}{3em}
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{classical}[theorem]{Classical result}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -29,6 +31,7 @@ pdfkeywords={forecast evaluation, transaction costs, order-book prediction, mark
 \newtheorem{example}[theorem]{Example}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remarkplain}{Remark}
 \newcommand{\E}{\mathbb E}
 \newcommand{\R}{\mathbb R}
 \newcommand{\dd}{\,\mathrm d}
@@ -47,44 +50,46 @@ Order-Book Signals, Market Impact,\\
 and Causal Trading}
 \author{Miquel Noguer Alonso\\
 \small Artificial Intelligence Finance Institute}
-\date{15 September 2026\\[5pt]\small DOI:
-\href{https://doi.org/10.5281/zenodo.22759534}{10.5281/zenodo.22759534}}
+\date{28 September 2026\\[5pt]\small DOI:
+\href{https://doi.org/10.5281/zenodo.23027604}{10.5281/zenodo.23027604}}
+\makeatletter
+\newcommand{\inputtable}[1]{\@@input#1 }
+\makeatother
 \begin{document}
 \maketitle
 \begin{abstract}
-An order-book forecast becomes a trading decision through costs,
-constraints, and the information available when the position is
-chosen. This paper develops loss identities and certificates for
-that conversion. Positive curvature yields a convex-conjugate
-Bregman loss and a quadratic error bound, with a sharp refinement
-for bounded positions. Purely proportional costs create threshold
-decisions with linear worst-case sensitivity and sharp margin
-rates. For scalar forecast intervals, a conjugate-secant formula
-gives the exact minimax position, including nonsmooth costs and
-position bounds. Queue depletion attains the corresponding
-quadratic and linear minimax losses.
-A finite marked-event book model transfers generator, price-mark,
-and posterior errors into clock-time forecasts, with individually
-sharp horizon coefficients. A finite subspace test characterizes
-features that preserve every conditional-mean price forecast;
-such features need not define a Markov aggregate. A price-specific
-reduction residual sharpens the transition-norm comparison.
-Positive likelihood and future-increment enclosures give an
-alternative interval certificate before the position is chosen.
-Information unavailable to the trader has a separate decision cost.
-An exact convex decomposition separates this observation loss
-from implementation loss. For delayed book observations, a
-jump-variance identity prices the unobserved state changes; it
-distinguishes their first-order latency cost from the smaller
-bias of failing to propagate a stale state. A two-regime example
-has an explicit delay beyond which trading optimally stops.
-For trajectories, an adapted-space residual combines forecast,
-impact, and optimization errors under convex constraints, with
-exact affine information decompositions and a verified stationary
-causal tracking specialization. All results concern declared
-exogenous book laws and objectives. Synthetic calculations check
-the identities and rigorous enclosures without empirical
-profitability claims.
+An order-book forecast becomes a trading decision through costs, constraints
+and the information available when the position is chosen. This paper derives
+loss identities and certificates for that conversion. Positive curvature
+gives a convex-conjugate loss and quadratic sensitivity; purely proportional
+costs create threshold decisions with different error rates. Forecast
+intervals admit exact scalar minimax decisions. Finite marked-event models
+transfer errors in book dynamics, price marks, filtering and state reduction
+into forecast and decision error.
+
+Information unavailable to the trader has a separate cost. The analysis
+distinguishes observation loss, latency and implementation error, and extends
+the comparison to adapted trading trajectories with impact and constraints.
+A baseline-relative extension converts conditional-mean uncertainty into a
+certified position change. It gives an explicit portfolio no-trade region
+and a scalar rule in which transaction costs and forecast uncertainty widen
+the same threshold. Under simultaneous mean coverage and a conditional
+exponential-moment bound, a normal-mixture argument transfers conditional
+decision gains into a time-uniform lower bound on realized outcomes.
+
+In a one-period cell whose joint fill/return law does not depend on the
+attempted order, a random-fill extension identifies the joint moments needed to
+convert a price forecast into an order.
+A joint-moment uncertainty set yields robust continuous and lot-grid orders,
+while pathwise fill bounds enforce portfolio exposure. A bounded-outcome
+mixture certificate then transfers certified conditional gains to realized
+random-filled outcomes under explicit sequential assumptions.
+
+Independent synthetic calculations check the identities, optimizers and
+sequential boundary. Forecast-set coverage, executable costs and conditional
+tail assumptions remain requirements for a market application. The results
+concern declared objectives and exogenous book laws, not empirical
+profitability or a solution to counterfactual market impact.
 \end{abstract}
 \noindent\textbf{Keywords:} forecast evaluation; transaction costs;
 convex duality; order-book prediction; partial observation; causal trading.
@@ -182,6 +187,32 @@ specialization when the linear signal term is zero, and covers
 forecast-driven trading when that term is retained. It preserves
 the declared information class and the common feasible set.
 
+\paragraph{Main result and reading order.}
+The results compose into one chain, stated as Corollary~\ref{cor:main-chain}.
+An observed event history determines, through the event filter
+(Proposition~\ref{prop:eventfilter}) and the forecast enclosure
+(Theorem~\ref{thm:eventinterval}), an interval for the conditional price
+increment. The interval determines a baseline-relative position with a
+guaranteed conditional improvement (Theorem~\ref{thm:robustpositiongain},
+Proposition~\ref{prop:portfolionotrade}). A normal-mixture boundary then transfers the
+sum of those guarantees to realized penalized outcomes at every stopping time
+(Theorem~\ref{thm:sequentialgain}). The norm certificate of Theorem~\ref{thm:bookdecision} is the
+alternative middle link when a reduced state is used, and Section~6 extends the
+position link to adapted trajectories with impact. Sections~2--4 supply the
+loss geometry each link uses; Sections~\ref{sec:randomexecution}--\ref{sec:productionforecast} replace the fully filled position
+by a random-filled order. Results labelled \emph{Classical result} are included
+for completeness and are not claimed as new.
+
+
+Section~\ref{sec:randomexecution} extends the decision interface to a restricted random-fill cell. It derives the required joint fill/return moments and shows why accurate marginal forecasts can still select a losing buy order.
+
+\paragraph{Implementation extension.}
+Section~\ref{sec:productionforecast} completes the discrete implementation interface.
+Section~\ref{sec:deploymentcalibration} applies the monograph's finite-sample coverage,
+policy-transfer bounds and the supported-counterfactual evidence boundary.
+All new experiments are synthetic, and the new guarantees are conditional
+on the assumptions stated in those sections.
+
 \section{The quadratic decision problem}
 
 Let \(r\in L^2\) be a one-period return, and let \(\mathcal G\) contain
@@ -198,7 +229,7 @@ quadratic risk charge \(\gamma\sigma^2w^2/2\) and quadratic trading cost
 This one-period specification starts from a flat position; it is not
 a cost on an arbitrary multi-period turnover process.
 
-\begin{theorem}[Exact squared-error transfer]\label{thm:quadratic}
+\begin{classical}[Exact squared-error transfer]\label{thm:quadratic}
 The optimal position is \(w^\ast=\mu/a\), with value
 \(\E\mu^2/(2a)\). If a trader uses \(\widehat w=\widehat\mu/a\), then
 \begin{equation}\label{eq:quadratic}
@@ -206,7 +237,7 @@ U(w^\ast)-U(\widehat w)=\frac{\E[(\mu-\widehat\mu)^2]}{2a}.
 \end{equation}
 The incremental value of observing \(\mathcal G\), relative to the best
 constant position, is \(\Var(\mu)/(2a)\).
-\end{theorem}
+\end{classical}
 \begin{proof}
 The pointwise identity
 \[
@@ -216,7 +247,7 @@ gives the optimizer and \eqref{eq:quadratic}. The best constant position
 is \(\E r/a\), so subtraction gives the final assertion.
 \end{proof}
 
-\begin{corollary}[Observed-return loss]\label{cor:observedmse}
+\begin{classical}[Observed-return loss]\label{cor:observedmse}
 For every admissible forecast,
 \[
 \E[(r-\widehat\mu)^2]=\E[(r-\mu)^2]+\E[(\mu-\widehat\mu)^2].
@@ -224,7 +255,7 @@ For every admissible forecast,
 Thus, for fixed information, friction, and sampling law, expected
 squared error against the observed return ranks forecasts in the same
 way as the quadratic trading objective.
-\end{corollary}
+\end{classical}
 \begin{proof}
 The cross term is zero because \(\E[r-\mu\mid\mathcal G]=0\).
 \end{proof}
@@ -1023,12 +1054,12 @@ an exact continuous-time history.
 For two valid models, choose common constants \(a_e>0\) at least as
 large as every row sum of both \(M_e\) and \(\widehat M_e\), and put
 \(B_e=M_e/a_e\), \(\widehat B_e=\widehat M_e/a_e\).
-Let \(L\) be the product in \eqref{eq:exacteventfilter} with
-\(B_e\) in place of \(M_e\), and let \(\widehat L\) be its fitted
+Let \(\Upsilon\) be the product in \eqref{eq:exacteventfilter} with
+\(B_e\) in place of \(M_e\), and let \(\widehat \Upsilon\) be its fitted
 counterpart. Define the rescaled likelihoods
 \[
- Z=\pi_0L\mathbf1,\qquad
- \widehat Z=\widehat\pi_0\widehat L\mathbf1
+ Z=\pi_0\Upsilon\mathbf1,\qquad
+ \widehat Z=\widehat\pi_0\widehat \Upsilon\mathbf1
 \]
 and the supplied bounds
 \begin{align*}
@@ -1060,12 +1091,12 @@ sup norms are at most one. Duhamel's formula gives
 \(\norm{e^{K\Delta}-e^{\widehat K\Delta}}_{\infty\to\infty}
 \le\Delta\varepsilon_K\). Telescoping the product therefore yields
 \[
- \norm{\pi_0L-\widehat\pi_0\widehat L}_1
+ \norm{\pi_0\Upsilon-\widehat\pi_0\widehat \Upsilon}_1
  \le E_{\rm hist}:=\varepsilon_0+t\varepsilon_K+
                       \sum_{k=1}^N\varepsilon_{B,e_k}.
 \]
 In particular \(|Z-\widehat Z|\le E_{\rm hist}\). With
-\(u=\pi_0L\) and \(\widehat u=\widehat\pi_0\widehat L\),
+\(u=\pi_0\Upsilon\) and \(\widehat u=\widehat\pi_0\widehat \Upsilon\),
 \[
  \norm{u/Z-\widehat u/\widehat Z}_1
  \le\frac{|\widehat Z-Z|+\norm{u-\widehat u}_1}{\widehat Z}
@@ -1114,8 +1145,7 @@ the effect of a specified finite state reduction.
 
 Let \(c:\{1,\ldots,n\}\to\{1,\ldots,m\}\) be a surjective cell map
 and let \(L_{i\ell}=\mathbf1_{\{c(i)=\ell\}}\) lift a coarse vector
-to the full state space. In this subsection \(L\) denotes this lift,
-not the likelihood product in Proposition~\ref{prop:eventfilter}.
+to the full state space. 
 For a valid coarse generator \(\overline Q\), put
 \begin{equation}\label{eq:lumpresidual}
  R=QL-L\overline Q,\qquad
@@ -1826,6 +1856,15 @@ with proportional costs, all refined means may remain inside the
 same no-trade region. Conversely, a perfect parameter model and
 an exact event filter can still leave a positive information term.
 
+\begin{remark}[Logarithmic growth]\label{rem:kelly}
+For expected logarithmic growth over the portfolio simplex, with gross returns
+in $[\underline r,\overline r]$ and $0<\underline r$, the analogous value of a
+signal $Y$ is at most the mutual information $I(R;Y)$ in nats
+\citep{Kelly1956,CoverThomas2006}. That objective is not the convex-cost criterion above, and
+its ceiling is not a special case of \eqref{eq:nonlinearinfo}.
+\end{remark}
+
+
 For a concrete finite observation experiment, let the hidden state
 have prior \(p_i\), state-conditional forecast \(v_i\), and
 observation kernel \(B_{io}=\mathbb P(O=o\mid X=i)\). Assume
@@ -2293,6 +2332,10 @@ sharpness of its constant. Decision equivalence follows from
 \eqref{eq:affineexact} and injectivity of rate integration.
 \end{proof}
 
+The constant $2T/\pi$ is the norm of the Volterra integration operator on
+$L^2(0,T)$ \citep{Halmos1982}; the proof shows that restricting to adapted rates
+does not reduce it.
+
 The error is measured after conditional remaining-horizon integration
 and projection onto feasible directions. For a deterministic persistent
 bias \(z_t=b\), \(e_s=b(T-s)\) and
@@ -2670,58 +2713,16 @@ illustrative; the four transfer curves are analytic.}
 \label{fig:causaltracking}
 \end{figure}
 
-\section{Information and logarithmic growth}
+\input{sections/certified_position_improvement.tex}
+\FloatBarrier
 
-An information bound requires an explicit portfolio opportunity set.
-It does not automatically cap a quadratic utility measured in
-different units.
 
-\begin{theorem}[Portfolio information ceiling]\label{thm:information}
-Let the gross-return vector \(R\in[\underline r,\overline r]^d\), with
-\(0<\underline r\le\overline r<\infty\), and let admissible portfolios
-be the simplex \(\Delta_d=\{b\ge0:\sum_i b_i=1\}\).
-For a signal \(Y\) on a standard Borel space, the improvement in
-optimal one-period expected
-logarithmic growth satisfies
-\[
-0\le
-\E_Y\max_{b\in\Delta_d}\E[\log(b^\top R)\mid Y]
- -\max_{b\in\Delta_d}\E\log(b^\top R)
-\le I(R;Y).
-\]
-The market and feasible portfolio set are the same with and without
-the signal.
-\end{theorem}
-\begin{proof}
-Let \(b_0\) maximize the unconditional objective; compactness and the
-bounded positive returns ensure existence. Its directional optimality
-condition toward any \(b\in\Delta_d\) gives
-\[
-\E\frac{b^\top R}{b_0^\top R}\le1.
-\]
-For a conditional law \(P_y\) and unconditional law \(P\), the
-variational relative-entropy inequality implies
-\[
-\E_{P_y}\log\frac{b^\top R}{b_0^\top R}
-\le\KL(P_y\Vert P)
- +\log\E_P\frac{b^\top R}{b_0^\top R}
-\le\KL(P_y\Vert P).
-\]
-If the relative entropy is infinite the assertion is immediate.
-Apply the inequality to a conditional maximizing portfolio and
-average over \(Y\). The expectation of the baseline conditional
-log return is its unconditional value. Ignoring \(Y\) gives the
-lower bound.
-\end{proof}
 
-This is the classical log-optimal information comparison
-\citep{Kelly1956,CoverThomas2006}, under convenient bounded-return
-assumptions. In the separate finite horse-race model, with positive
-outcome probabilities and outcome-specific payoffs, the optimal
-conditional betting proportions give equality with mutual information.
-The simplex and positivity assumptions cannot be dropped while
-retaining an unrestricted assertion about arbitrary actions and
-arbitrary logarithmic rewards.
+\input{sections/realistic_trading.tex}
+
+\input{sections/production_forecast.tex}
+
+\input{sections/calibration_bridge.tex}
 
 \section{Scope and implications}
 
@@ -2817,6 +2818,15 @@ uncertainty box.
 These are synthetic verification exercises, not a comparison of neural
 architectures or a backtest of market predictability.
 
+The production extension moves the decision variable from a fully filled
+position to an order with uncertain execution. Joint moment sets preserve
+fill--return dependence, while exact fill-box constraints control realized
+exposure. A separate mixture bound connects predictable conditional gain
+to cumulative settled outcomes under its boundedness and coverage
+assumptions. It does not convert an in-sample forecast score into a live
+trading guarantee.
+
+\setlength{\bibsep}{3pt plus 0.5pt minus 0.5pt}
 \bibliographystyle{plainnat}
 \bibliography{references}
 \end{document}

@@ -1,0 +1,12 @@
+{
+  "base_commit": "7f0184d0fc0769bb319f8e2da9483bce9e681aa0",
+  "baseline_pdf_pages": 38,
+  "revised_pdf_pages": 42,
+  "latex_errors": 0,
+  "unresolved_references": 0,
+  "overfull_boxes": 0,
+  "added_result_statements": 3,
+  "remote_ci_executed": false,
+  "new_lean_proofs": false,
+  "market_data_used": false
+}
