@@ -1,1 +1,27 @@
-% Calibration and implementation bounds.
+\section{Calibration, implementation error, and the evidence boundary}\label{sec:deploymentcalibration}
+The deployment interface is the one stated and proved in
+\citet[Section~39]{NoguerAlonso2026Execution}; we record what it requires and how the
+present objective enters it. Decision opportunities $k=0,\dots,N$ have states
+built from receipt-time information, feasible actions that include an empty
+message, conditional mean rewards $r_k$ and next-state kernels $P_k^a$. With a common initial law, observation class, feasible masks and a terminal
+reward error at most $\eta_N$, suppose the
+fitted model satisfies $\lvert r_k-\widehat r_k\rvert\le\eta_k$ and
+$\mathrm{TV}(P_k^a,\widehat P_k^a)\le\epsilon_k$ uniformly, and $S_k$ bounds the
+span of fitted continuation values. Then, with $B_N=\eta_N$ and
+$B_k=B_{k+1}+\eta_k+\epsilon_kS_{k+1}$ every common feasible policy has
+$\lvert J-\widehat J\rvert\le B_0$, and an implemented policy with fitted action
+gaps $\zeta_k$ loses at most $2B_0+\widehat{\mathbb E}\sum_k\zeta_k$
+\citep[Theorem~39.1]{NoguerAlonso2026Execution}. For $L$ prespecified rows with
+$n_\ell$ independent draws each, the simultaneous radii of
+\citet[Proposition~39.2]{NoguerAlonso2026Execution} hold with probability $1-\delta$.
+
+Here the reward is the risk-penalized objective of the trajectory certificate or \eqref{eq:allmomentgain}, not cash
+P\&L, and the next-state kernel includes the fill fraction of Section~\ref{sec:randomexecution} and the
+receipt clock of Section~\ref{sec:productionforecast}. Theorem~\ref{thm:sequentialgain} is a different
+statement: it controls realized outcomes given coverage of conditional means,
+whereas the table construction supplies such coverage only under independent
+row sampling, which dependent book data do not satisfy by themselves. Replay
+and off-policy evaluation need the support, invariance and unconfoundedness
+conditions of \citet[Section~39.4]{NoguerAlonso2026Execution}; at an unlogged order, two
+joint fill/return laws can agree on every observed record and imply opposite
+decisions, as the coupling example of Section~\ref{sec:couplingexample} shows.

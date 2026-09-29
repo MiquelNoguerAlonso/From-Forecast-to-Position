@@ -1,0 +1,178 @@
+\section{From a target position to random execution}
+\label{sec:randomexecution}
+
+A forecast of the reference price is not automatically the forecast
+relevant to an order. A position target may fill partially, and the
+conditional return of filled orders may differ from the unconditional
+return. The earlier convex and causal results remain valid for their
+stated executable-position objectives. This section makes a separate,
+restricted random-execution cell explicit and identifies the moments a
+forecast-to-order conversion actually requires.
+
+\subsection{What changes relative to a fully filled target}
+\citet[Section~37.1]{NoguerAlonso2026Execution} lists six modelling requirements---fill
+law, impact and liquidity, information, competition, objective and
+evaluation---and their status for a parent mandate. For a forecast-driven order
+two of them change character. First, the relevant forecast is no longer the
+conditional mean of the reference return but the fill-weighted moment
+$\mathbb E[\Phi R]$, together with $\mathbb E\Phi$ and $\mathbb E\Phi^2$;
+Section~\ref{sec:randomfill-rule} derives them. Second, position and capital
+limits must hold for every possible executed position, not its mean
+(Section~\ref{sec:fillbox}). The remaining four requirements carry over unchanged; in
+particular the exogenous book law of Section~5 is a conditional modelling
+assumption, not a model of how opponents react to the order policy.
+
+\subsection{An exact decision rule with random fills}\label{sec:randomfill-rule}
+
+Condition throughout on information available at the order decision.
+There is an initial holding \(b\), an attempted increment \(u\) in a
+closed interval \([\underline u,\overline u]\) containing zero, a fill
+fraction \(\Phi\in[0,1]\), and a return \(R\). Execution occurs at the
+start of this one-period cell at the reference price, with per-executed-unit
+charge \(c\ge0\). The resulting position is \(b+\Phi u\).
+A quadratic order charge \(\kappa u^2/2\), \(\kappa\ge0\), can be
+included separately. A rebate alone is not to be substituted for a
+nonnegative total \(c\) if that would violate this convexity assumption.
+
+The joint law of \((\Phi,R)\) is held fixed for every admissible \(u\) in
+this cell. This is a strong local assumption: changing direction, size,
+price or venue generally changes it. One can restrict the interval to a
+single side, or evaluate separate cells for different order instructions.
+If fills occur at different prices or times, replace \(\Phi R\) by the
+matched sum of executed quantities times their subsequent price changes
+per unit attempted order, and rederive the inventory-risk term.
+
+Define the conditional moments
+\[
+ p=\E\Phi,\qquad s_2=\E\Phi^2,\qquad m_F=\E[\Phi R],
+ \qquad H=a s_2+\kappa>0,
+\]
+where \(a>0\) is the quadratic position charge. Relative to retaining
+\(b\), expected risk-penalized gain is
+\begin{equation}\label{eq:randomfillgain}
+ G(u)=u(m_F-abp)-cp|u|-\tfrac12 H u^2.
+\end{equation}
+The target signal is \(m_F\), not \(p\E R\), and the risk coefficient
+uses \(s_2\), not \(p^2\).
+
+\begin{proposition}[A fill-weighted order rule]
+\label{prop:fillweightedorder}
+Under the preceding assumptions, let \(\mathcal S_d(x)=
+\operatorname{sgn}(x)(|x|-d)_+\) and let
+\(\Pi_{[\underline u,\overline u]}\) denote scalar clipping. The unique
+optimal attempted increment is
+\begin{equation}\label{eq:fillweightedorder}
+ u^*=\Pi_{[\underline u,\overline u]}
+       \left(\frac{\mathcal S_{cp}(m_F-abp)}{H}\right).
+\end{equation}
+If \(p,s_2\) are known but \(m_F\in[\widehat m_F-\varepsilon,
+\widehat m_F+\varepsilon]\), the minimax gain relative to retaining
+\(b\) is maximized by
+\begin{equation}\label{eq:robustfillweightedorder}
+ u^{\rm rob}=\Pi_{[\underline u,\overline u]}
+       \left(\frac{\mathcal S_{cp+\varepsilon}(\widehat m_F-abp)}{H}\right).
+\end{equation}
+Its worst-case gain is nonnegative, since \(u=0\) is feasible.
+\end{proposition}
+\begin{proof}
+Subtract \(bR-ab^2/2\) from
+\((b+\Phi u)R-a(b+\Phi u)^2/2-c\Phi|u|-\kappa u^2/2\), and take
+conditional expectations to obtain \eqref{eq:randomfillgain}. The
+strictly concave scalar objective has the soft-threshold optimizer
+in \eqref{eq:fillweightedorder}; clipping gives its maximum on the
+interval. Minimizing its linear \(u m_F\) term over the mean interval
+subtracts \(\varepsilon|u|\), giving
+\eqref{eq:robustfillweightedorder}. Strict concavity and feasibility of
+zero establish uniqueness and nonnegative worst-case gain.
+\end{proof}
+
+The elementary identity
+\begin{equation}\label{eq:fillforecastbias}
+ m_F=p\E R+\operatorname{Cov}(\Phi,R)
+\end{equation}
+shows how adverse selection enters the signal. If \(p>0\), then
+\(m_F/p\) is the fill-weighted expected return, equal to a return
+conditional on filling when \(\Phi\) is an indicator. Even under
+independence, replacing a random position by its mean understates its
+quadratic charge by
+\(a u^2\operatorname{Var}(\Phi)/2\). This order rule is a specialization
+of the earlier mixed-friction optimization; its contribution here is to
+identify which execution moments must enter it.
+
+For vector attempted orders and a diagonal random fill matrix \(D\),
+with fixed joint law and symmetric risk matrix \(A\), the corresponding
+quadratic coefficient is
+\[
+ H=\E[D^{\mathsf T}AD]+K,
+ \qquad \eta=\E[D^{\mathsf T}(R-Ab)],
+\]
+where \(K\) is the quadratic order-charge matrix. Proportional charges
+use each component's expected fill fraction. Off-diagonal entries retain
+joint fills as well as risk correlations. The constrained convex problem
+is available when \(H\) is positive definite; componentwise scalar
+thresholding generally fails when it is not diagonal. This formula does
+not model cross-impact or opponent response unless those terms are
+explicitly supplied in the objective and law.
+
+\subsection{A profitable price forecast can imply no buy order}\label{sec:couplingexample}
+
+In a synthetic one-sided cell, let \(b=0\), \(u\in[0,1]\), \(a=0.10\),
+\(c=0.01\), \(\kappa=0\), and let \(R\) equal \(0.14\) or \(-0.06\)
+with equal probabilities. Thus \(\E R=0.04\). A Bernoulli fill has
+\(p=s_2=0.5\). Under independence \(m_F=0.02\), so the rule attempts
+\(u=0.30\) and predicts a gain of \(0.00225\).
+
+Now couple every fill to the negative-return event. The return forecast,
+fill probability and quadratic coefficient are unchanged, but
+\(m_F=-0.03\). Sending the same \(0.30\) buy order produces expected
+risk-penalized gain \(-0.01275\); the optimal admissible action is zero.
+For a mixture with adverse-coupling weight \(\theta\),
+\(m_F=0.02-0.05\theta\) and the optimal attempt is
+\(u^*=(0.30-\theta)_+\). If only
+\(0\le\theta\le\overline\theta\) is known, the maximin buy attempt is
+\((0.30-\overline\theta)_+\). This last statement uses a one-sided
+uncertainty interval and one-sided action set; it is not an assumption
+that buy and sell fills have the same law.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Random-execution stress with identical marginal return and fill
+laws. The last column evaluates the original \(u=0.30\) attempt under
+each law. Values are synthetic objective units.}
+\begin{tabular}{lrrr}
+\toprule
+Law & \(m_F\) & Optimal buy \(u^*\) & Gain at \(u=0.30\)\\
+\midrule
+\inputtable{tables/realism_rows.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+
+The script \texttt{verification/realism\_stress.py} verifies the exact
+example and compares the scalar rules with independent bounded
+optimization for random discrete joint laws, position intervals and
+uncertainty widths. A joint-moment confidence set must be calibrated;
+one cannot relabel an unconditional mean interval as an interval for
+\(m_F\). If \(p,s_2\) are uncertain too, they must join that set and the
+simple formula requires a new robust optimization.
+
+\subsection{An evaluation target that matches the order}
+
+Compare unconditional-return prediction, joint fill/return prediction
+and the induced feasible orders on the same chronological splits.
+Report calibration of \(p,s_2,m_F\), actual completed positions, net cash
+P\&L and the declared risk-penalized objective separately. Match each
+return label to the execution price and horizon; do not use later
+fills or quotes when constructing the earlier decision. Test rank,
+latency, volatility, fees and response changes jointly, because separate
+marginal accuracy checks cannot detect \eqref{eq:fillforecastbias}.
+A target-position ablation is informative only when its full-execution
+assumption is reported.
+
+Finally, the sequential guarantee of Section~\ref{sec:certifiedposition}
+uses a specified conditional exponential-moment bound. A random-filled
+position changes its noise term. The earlier return-only variance proxy
+cannot be carried over without proving the corresponding bound for joint
+fill/return increments. Coverage of conditional decision gains,
+control of realized noise, and a market counterfactual are three distinct
+requirements.
